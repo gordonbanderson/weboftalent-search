@@ -6,8 +6,8 @@
  */
 class SearchAdvancedForm extends SearchForm {
 
-	public static $fieldCssClasses = 'span12';
-	public static $buttonCssClasses = 'btn';
+	public static $fieldCssClasses = 'span11';
+	public static $buttonCssClasses = 'btn btn-primary';
 
 
 	protected $classesToSearch = array(
