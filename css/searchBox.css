@@ -1,0 +1,11 @@
+
+
+#searchBox  button.btn {
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  cursor: pointer;
+  text-indent: -9999px;
+  background: white url(/silverstripe-search/img/icons/searchicon.png) no-repeat center;
+}
+
