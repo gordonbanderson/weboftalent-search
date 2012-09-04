@@ -14,18 +14,20 @@ class SearchPage_Controller extends Page_Controller {
 
 
 
- public function ColumnLayout() {
-    	return 'layout2col';
+ public function HideMenu() {
+    	return true;
     }
+
+  public function HideBreadCrumbs() {
+    return true;
+  }
 
 
 /* Results from search submission */
   function results($data, $form) {
       $startTime = microtime(true);
 
-      error_log("***** SP SEARCH RESULTS ****");
-      error_log(print_r($data, 1));
-
+    
 
 
       error_log("Search results:".get_class($form));
@@ -101,6 +103,7 @@ class SearchPage_Controller extends Page_Controller {
     // for bootstrap
     $fa->useButtonTag = true;
     $fa->addExtraClass('btn');
+    $fa->addExtraClass('btn-primary');
       
     $actions = new FieldSet(
         $fa
