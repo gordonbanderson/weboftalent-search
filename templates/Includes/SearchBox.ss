@@ -1,5 +1,4 @@
-<a name="searchBox"></a>
-<div id="searchBox">
+<div id="searchBox" class="nav-collapse">
 <h3 class="hide"><% _t('Page.SEARCH', 'Search') %></h3>
 
 
@@ -13,7 +12,6 @@
 
 
 <button type="submit" class="btn"><i class="icon-search"></i></button>
-</input>
 
 </form>
 <% else %>
