@@ -15,7 +15,10 @@ class AdvancedSearchPage extends SearchPage {
 
 class AdvancedSearchPage_Controller extends SearchPage_Controller {
 
-  
+  public function HideMenu() {
+      return true;
+    }
+    
   /*
    Advanced search form components
   */
