@@ -1,7 +1,5 @@
 <div id="searchBox" class="nav-collapse">
 <h3 class="hide"><% _t('Page.SEARCH', 'Search') %></h3>
-
-
 <% if SearchPageURI %>
 <% cached 'header', Aggregate(SearchPage).Max(LastEdited) %>
 <form action="{$SearchPageURI}SearchForm" class="form-search">
@@ -9,10 +7,7 @@
 <label class="accessibilityHidden" for="MainSearchBox">Search</label>
 <% end_cached %>
 <input name="Search" id="MainSearchBox" class="input-medium search-query" type="text" value="$Query" accesskey="3">
-
-
 <button type="submit" class="btn"><i class="icon-search"></i></button>
-
 </form>
 <% else %>
 <% _t('Page.SEARCH_UNAVAILABLE', 'Search Unavailable') %>
