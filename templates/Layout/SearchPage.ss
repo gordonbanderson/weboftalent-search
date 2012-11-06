@@ -1,7 +1,5 @@
 <h1 class="head">$Title</h1>
 $Content
-
-<h2> Search form here?</h2>
 <div>
 $SearchForm
 </div>
