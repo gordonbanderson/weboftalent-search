@@ -8,61 +8,49 @@ $Form
 $SearchForm
 
 
-
-<% if Results %>
 <div class="searchResults">
 
+<% if Results %>
 
-<div class="resultsFound">$Results.TotalItems <% _t('SearchPage.RESULTS_FOUND', ' results found') %></div>
-<% control Results %>
-  <div class="searchResult">
-  <a href="$Link">$Title</a>
-  <% if Content %><div class="summary">$Content.Summary(30)</div><% end_if %>
-  <div class="searchFooter">
-  <% if ClassName = Link %>
-$LoadLink
-  <% else %>
-$AbsoluteLink
-  <% end_if %>
-  - $LastEdited.Format(d/m/y)
-  </div>
-  </div>    
+
+<div class="resultsFound">
+<% if AdvancedSearchPage %>
+<div class="otherSearchLinks">
+<% control AdvancedSearchPage %>
+<a href="{$Link}?%2B=$Query">$Title</a>
 <% end_control %>
 </div>
+<% end_if %>
+Page $Results.CurrentPage of $Results.TotalPages &nbsp;($Results.TotalItems <% _t('SearchPage.RESULTS_FOUND', ' results found') %> in $ElapsedTime seconds)
+</div>
+<% control Results %>
+<% include SearchResult %>
+<% end_control %>
 
     <% else %>
-    <p>Sorry, your search query did not return any results.</p>
+
+<div class="noResultsFound">
+<% if AdvancedSearchPage %>
+<div class="otherSearchLinks">
+<% control AdvancedSearchPage %>
+<a href="{$Link}?%2B=$Query">$Title</a>
+<% end_control %>
+</div>
+Sorry, your search query did not return any results. 
+
+ 
+<% end_if %>
   <% end_if %>
+</div>
 
 
 
 
-
-<% if Results.MoreThanOnePage %>
-    <div class="pageNumbers">
-      
-      <% if Results.NotFirstPage %>
-        <a class="prev" href="$Results.PrevLink" title="<% _t('SearchPage.PREVIOUS_PAGE', 'View the previous page') %>"><% _t('SearchPage.PREV
-IOUS', 'Prev') %></a>
-      <% end_if %>
-      <span>
-        <% control Results.Pages %>
-          <% if CurrentBool %>
-            $PageNum
-          <% else %>
-            <a href="$Link" title="View page number $PageNum">$PageNum</a>
-          <% end_if %>
-        <% end_control %>
-      </span>
-
-      <% if Results.NotLastPage %>
-        <a class="next" href="$Results.NextLink" title="<% _t('SearchPage.NEXT_PAGE', 'View the next page') %>"><% _t('SearchPage.NEXT', 'Next
-') %></a>
-      <% end_if %>
-    </div>
-  <% end_if %>
-
+<% include SearchPagination %>
 
 </div>
+
+
+
 
 $PageComments
