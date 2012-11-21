@@ -26,7 +26,7 @@ Depending on where you want the search box, add the following in your template:
 
 	<% include SearchBox %>
 
-You can of course customize this in your own theme.
+You can of course customize this in your own theme.  In the default black candy theme replace $SearchForm with the above.
 
 ## Silverstripe Version Compatibility
 2.4 only (tested with 2.4.5+) - stable24 branch
