@@ -12,6 +12,10 @@ class SearchPage extends Page {
 
 class SearchPage_Controller extends Page_Controller {
 
+  public function init() {
+    parent::init();
+    Requirements::css("weboftalent-search/css/search.css");
+  }
 
 
  public function HideMenu() {
