@@ -1,4 +1,6 @@
-
+#searchBox {
+	float: right;
+}
 
 #searchBox  button.btn {
   width: 24px;
@@ -6,6 +8,55 @@
   padding: 4px;
   cursor: pointer;
   text-indent: -9999px;
-  background: white url(/silverstripe-search/img/icons/searchicon.png) no-repeat center;
+  background: white url(/weboftalent-search/img/icons/searchicon.png) no-repeat center;
+  margin-bottom: -6px;
 }
 
+.hide {
+	position: absolute;
+	left: -9999px
+;}
+
+.searchResult {
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+
+/* Search form */
+
+
+
+#SearchForm_SearchForm {
+float: none;
+position: relative;
+margin-left: auto;
+margin-right: auto;
+}
+
+.otherSearchLinks {
+	float: right;
+}
+
+.searchResults {
+	clear: both;
+}
+
+.resultsFound {
+	font-style: italic;
+	margin-bottom: 2em;
+	margin-top: 2em;
+}
+
+
+.pagination ul {
+	display: inline;
+	list-style-type: none;
+}
+
+.pagination ul li {
+	display: inline;
+}
+
+.pagination-centered {
+text-align: center;
+}
