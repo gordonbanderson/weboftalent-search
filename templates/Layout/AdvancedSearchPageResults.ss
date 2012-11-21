@@ -34,9 +34,9 @@ $Results.TotalItems <% _t('SearchPage.RESULTS_FOUND', ' results found') %>
 <% end_control %>
 </div>
 <% end_if %>
+  Sorry, your search query did not return any results. 
 
   <% end_if %>
-  Sorry, your search query did not return any results. 
 </div>
 
 
