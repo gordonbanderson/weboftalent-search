@@ -98,7 +98,7 @@ class SearchPage_Controller extends Page_Controller {
 
 
     
-    $fields = new FieldSet(
+    $fields = new FieldList(
       $tf
     );
 
@@ -109,13 +109,13 @@ class SearchPage_Controller extends Page_Controller {
     $fa->addExtraClass('btn');
     $fa->addExtraClass('btn-primary');
       
-    $actions = new FieldSet(
+    $actions = new FieldList(
         $fa
       );
 
 
     $requiredFields = new RequiredFields(); 
-    $requiredFields->set_javascript_validation_handler('none');
+    //$requiredFields->set_javascript_validation_handler('none');
 
         
     $form = new SearchForm($this, "SearchForm", $fields, $actions, $requiredFields);
