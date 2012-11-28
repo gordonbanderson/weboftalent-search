@@ -36,7 +36,7 @@ class SearchAdvancedForm extends SearchForm {
 			$searchText = $this->owner->request->getVar('Search');
 		}
 
-		$fields = new FieldSet(
+		$fields = new FieldList(
 			new TextField('Search', false, $searchText)
 		);
 */
@@ -112,7 +112,7 @@ class SearchAdvancedForm extends SearchForm {
 
 		if(!$fields) {
 			error_log("SAP: NEW fields");
-			$fields = new FieldSet(
+			$fields = new FieldList(
 				$searchBy = new CompositeField(
 					new TextField("+", _t('AdvancedSearchForm.ALLWORDS', 'All Words'), $withSan),
 					new TextField("quote", _t('AdvancedSearchForm.EXACT', 'Exact Phrase'), $quoteSan),
@@ -132,7 +132,7 @@ class SearchAdvancedForm extends SearchForm {
 			);
 			
 			$searchBy->ID = "AdvancedSearchForm_SearchBy";
-			$searchOnly->ID = "AdvancedSearchForm_SearchOnly";
+			//FIXME$searchOnly->ID = "AdvancedSearchForm_SearchOnly";
 			$sortBy->ID = "AdvancedSearchForm_SortBy";
 
 			if (isset(self::$fieldCssClasses)) {
@@ -147,7 +147,7 @@ class SearchAdvancedForm extends SearchForm {
 		}
 		
 		if(!$actions) {
-			$actions = new FieldSet(
+			$actions = new FieldList(
 				$fa = new FormAction("results", _t('AdvancedSearchForm.Search', 'Search'))
 			);
 		}
@@ -165,7 +165,11 @@ class SearchAdvancedForm extends SearchForm {
 	
 	/* Return dataObjectSet of the results, using the form data.
 	 */
-	public function getResults($numPerPage = 10) {
+	//public function getResults($numPerPage = 10) {
+	public function getResults($pageLength = 10, $data = null){
+
+		$numPerPage = $pageLength;
+
 		$data = $this->getData();
 		$keywords = '';
 		$fileFilter = '';
@@ -173,10 +177,10 @@ class SearchAdvancedForm extends SearchForm {
 		$invertedMatch = '';
 		$contentFilter = '';
 
-	 	if($data['+']) $keywords .= " +" . ereg_replace(" +", " +", trim($data['+']));
+	 	if($data['+']) $keywords .= " +" . preg_replace("/ +/", " +", trim($data['+']));
 	 	if($data['quote']) $keywords .= ' "' . $data['quote'] . '"';
 	 	if($data['any']) $keywords .= ' ' . $data['any'];
-	 	if($data['-']) $keywords .= " -" . ereg_replace(" +", " -", trim($data['-']));
+	 	if($data['-']) $keywords .= " -" . preg_replace("/ +/", " -", trim($data['-']));
 	 	$keywords = trim($keywords);
 	 	
 	 	// This means that they want to just find pages where there's *no* match
@@ -187,11 +191,13 @@ class SearchAdvancedForm extends SearchForm {
 		 		$invertedMatch = true;
 		 	}
 	 	}
-
+error_log("T1");
 	 	
 	 	// Limit search to various sections
 	 	if(isset($_REQUEST['OnlyShow'])) {
 	 		$pageList = array();
+
+	 		error_log("T2");
 
 			// Find the associated pages	 		
 	 		foreach($_REQUEST['OnlyShow'] as $section => $checked) {
@@ -249,27 +255,25 @@ class SearchAdvancedForm extends SearchForm {
 */
 
 		$start = isset($_GET['start']) ? (int)$_GET['start'] : 0;
-
-
-//	public function searchEngine($classesToSearch, $keywords, $start, $pageLength, $sortBy = "Relevance DESC", $extraFilter = "", $booleanSearch = false, $alternativeFileFilter = "", $invertedMatch = false) {
-
 	 	
 	 	$results = DB::getConn()->searchEngine($this->classesToSearch, $keywords, $start, $numPerPage,
 		 	$sortBy, $contentFilter, true, $fileFilter, $invertedMatch
 		 );
 
+	 	error_log("AFTER SEARCH:");
+	 	error_log(print_r($results,1));
+
 	 	return $results;
-//		return DB::getConn()->searchEngine($this->classesToSearch, $keywords, $numPerPage, 'wibble', $contentFilter, true, $fileFilter, $invertedMatch);
 	}
 	
-	function getSearchQuery() {
+	public function getSearchQuery($data = null) {
 		error_log("Getting ksearch query");
 		$data = $_REQUEST;
 		$keywords = '';
-	 	if($data['+']) $keywords .= " +" . ereg_replace(" +", " +", trim($data['+']));
+	 	if($data['+']) $keywords .= " +" . preg_replace("/ +/", " +", trim($data['+']));
 	 	if($data['quote']) $keywords .= ' "' . $data['quote'] . '"';
 	 	if($data['any']) $keywords .= ' ' . $data['any'];
-	 	if($data['-']) $keywords .= " -" . ereg_replace(" +", " -", trim($data['-']));	
+	 	if($data['-']) $keywords .= " -" . preg_replace("/ +/", " -", trim($data['-']));	
 	 	
 	 	error_log($keywords);
 	 	return trim($keywords);
