@@ -1,3 +1,8 @@
+# **** Work in Progress ****
+
+This is not yet complete, the TotalItems is not being returned currently
+
+
 ##Functionality
 * Addition of a Search Page with paginated results
 * Addition of an Advanced Search Page with paginated results
