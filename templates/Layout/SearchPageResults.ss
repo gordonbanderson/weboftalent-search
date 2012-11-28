@@ -21,7 +21,7 @@ $SearchForm
 <% end_control %>
 </div>
 <% end_if %>
-Page $Results.CurrentPage of $Results.TotalPages &nbsp;($Results.TotalItems <% _t('SearchPage.RESULTS_FOUND', ' results found') %> in $ElapsedTime seconds)
+Page $Results.CurrentPage of $Results.TotalPages &nbsp;($Results.Count <% _t('SearchPage.RESULTS_FOUND', ' results found') %> in $ElapsedTime seconds)
 </div>
 <% control Results %>
 <% include SearchResult %>
