@@ -19,7 +19,7 @@ $AdvancedSearchForm
 </div>
 <% end_if %>
 
-$Results.TotalItems <% _t('SearchPage.RESULTS_FOUND', ' results found') %>
+FIXME: Total items: $Results.Count <% _t('SearchPage.RESULTS_FOUND', ' results found') %>
 </div>
 <% control Results %>
   <% include SearchResult %>
