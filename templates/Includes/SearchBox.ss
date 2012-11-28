@@ -1,7 +1,7 @@
 <div id="searchBox" class="nav-collapse">
 <h3 class="hide"><% _t('Page.SEARCH', 'Search') %></h3>
 <% if SearchPageURI %>
-<% cached 'header', Aggregate(SearchPage).Max(LastEdited) %>
+<% cached 'header', DataList(SearchPage).Max(LastEdited) %>
 <form action="{$SearchPageURI}SearchForm" class="form-search">
 <input type="hidden" name="locale" value="$Locale"/>
 <label class="accessibilityHidden" for="MainSearchBox">Search</label>
