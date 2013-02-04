@@ -3,8 +3,8 @@
 FulltextSearchable::enable();
 
 // Add the SearchpageURI method, which checks for the existence of a page of class SearchPage
-Object::add_extension('Page_Controller', 'SearchPageExtension');
+Page_Controller::add_extension('SearchPageExtension');
 
-Object::add_extension('SearchPage_Controller', 'ZendSearchLuceneContentController');
+SearchPage_Controller::add_extension( 'ZendSearchLuceneContentController');
 
 ?>
