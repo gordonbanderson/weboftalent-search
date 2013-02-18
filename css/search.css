@@ -49,7 +49,7 @@ margin-right: auto;
 
 
 .pagination ul {
-	display: inline;
+	display: inline-block;
 	list-style-type: none;
 }
 
