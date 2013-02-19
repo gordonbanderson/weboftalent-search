@@ -7,7 +7,6 @@
 <label class="accessibilityHidden" for="MainSearchBox">Search</label>
 <% end_cached %>
 <input name="Search" id="MainSearchBox" class="input-medium search-query" type="text" value="$Query" accesskey="3">
-<button type="submit" class="btn"><i class="icon-search"></i></button>
 </form>
 <% else %>
 <% _t('Page.SEARCH_UNAVAILABLE', 'Search Unavailable') %>
