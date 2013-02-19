@@ -15,6 +15,8 @@ class SearchPage_Controller extends Page_Controller {
   public function init() {
     parent::init();
     Requirements::css("weboftalent-search/css/search.css");
+    ShortcodeParser::get('default')->clear();
+
   }
 
 
@@ -31,6 +33,7 @@ class SearchPage_Controller extends Page_Controller {
   function results($data, $form, $request) {
       $startTime = microtime(true);
 
+
     
       $formResultsTemplate = 'SearchPageResults';
 
@@ -39,10 +42,12 @@ class SearchPage_Controller extends Page_Controller {
         $formResultsTemplate = 'AdvancedSearchPageResults';
 
 
-        $form->loadDataFrom( $data); 
+        $form->loadDataFrom( $data);
+        $results = $form->getResults();
+        $results->CurrentPage = 1; 
 
         $data= array(
-              'Results' => $form->getResults(),
+              'Results' => $results,
               'Query' => $form->getSearchQuery(),
               'Title' => $this->Title,
               'quote' => $data['quote'],
