@@ -1,0 +1,16 @@
+{
+	"name": "weboftalent/weboftalent-search",
+	"description": "This module allows one to easily add search and advanced search to a silverstripe site",
+	"type": "silverstripe-module",
+	"keywords": ["silverstripe", "search","weboftalent"],
+	"authors": [
+	{
+		"name": "Gordon Anderson",
+		"email": "gordon@weboftalent.asia"
+	}
+	],
+	"require":
+	{
+		"silverstripe/framework": "3.*"
+	}
+}
