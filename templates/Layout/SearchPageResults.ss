@@ -16,25 +16,25 @@ $SearchForm
 <div class="resultsFound">
 <% if AdvancedSearchPage %>
 <div class="otherSearchLinks">
-<% control AdvancedSearchPage %>
+<% with AdvancedSearchPage %>
 <a href="{$Link}?%2B=$Query">$Title</a>
-<% end_control %>
+<% end_with %>
 </div>
 <% end_if %>
 Page $Results.CurrentPage of $Results.TotalPages &nbsp;($Results.Count <% _t('SearchPage.RESULTS_FOUND', ' results found') %> in $ElapsedTime seconds)
 </div>
-<% control Results %>
+<% loop Results %>
 <% include SearchResult %>
-<% end_control %>
+<% end_loop %>
 
     <% else %>
 
 <div class="noResultsFound">
 <% if AdvancedSearchPage %>
 <div class="otherSearchLinks">
-<% control AdvancedSearchPage %>
+<% with AdvancedSearchPage %>
 <a href="{$Link}?%2B=$Query">$Title</a>
-<% end_control %>
+<% end_with %>
 </div>
 Sorry, your search query did not return any results. 
 
