@@ -1,0 +1,11 @@
+en:
+  AdvancedSearchPage: 
+      PLURALNAME: 'Advanced Search Pages'
+      SINGULARNAME: 'Advanced Search Page'
+      DESCRIPTION: 'Page shows an advanced search form and also results of that search'
+
+  SearchPage:
+      DESCRIPTION: 'Page shows a search form and also results of that search'
+      PLURALNAME: "Search Pages"
+      SEARCH_HINT: "Enter a term to search the site"
+      SINGULARNAME: "Search Page"
