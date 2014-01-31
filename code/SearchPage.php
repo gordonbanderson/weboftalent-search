@@ -6,7 +6,8 @@ class SearchPage extends Page {
   static $defaults = array( 
       'ShowInMenus' => 0,
       //'ShowInSearch' => 0
-    ); 
+    );
+   private static $icon = 'weboftalent-search/icons/search.png'; 
 }
 
 
@@ -40,7 +41,6 @@ class SearchPage_Controller extends Page_Controller {
       $formResultsTemplate = 'SearchPageResults';
 
       if (get_class($form) == 'SearchAdvancedForm') {
-        error_log("**** RENDER ADVANCED SEARCH RESULTS ****");
         $formResultsTemplate = 'AdvancedSearchPageResults';
 
 
@@ -96,7 +96,7 @@ class SearchPage_Controller extends Page_Controller {
     $searchText = isset($this->Query) ? $this->Query : '';
 
     $tf = new TextField("Search", "", $searchText);
-    $tf->addExtraClass('span6');
+    $tf->addExtraClass('small-9 medium-10 large-11 columns');
 
 
     
@@ -108,8 +108,8 @@ class SearchPage_Controller extends Page_Controller {
 
     // for bootstrap
     $fa->useButtonTag = true;
-    $fa->addExtraClass('btn');
-    $fa->addExtraClass('btn-primary');
+    $fa->addExtraClass('button tiny small-3 medium-2 large-1 columns');
+   // $fa->addExtraClass('btn-primary');
       
     $actions = new FieldList(
         $fa
@@ -120,10 +120,10 @@ class SearchPage_Controller extends Page_Controller {
     //$requiredFields->set_javascript_validation_handler('none');
 
         
-    $form = new SearchForm($this, "SearchForm", $fields, $actions, $requiredFields);
-    $form->setTemplate('HorizontalForm');
+    $form = new FoundationSearchForm($this, "SearchForm", $fields, $actions, $requiredFields);
+   // $form->setTemplate('HorizontalForm');
 
-    $form->addExtraClass('form-inline');
+    $form->addExtraClass('inline');
 
     $form->Horizontal = true;
 
