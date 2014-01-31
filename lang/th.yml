@@ -1,0 +1,29 @@
+th:
+  AdvancedSearchForm: 
+      ALLWORDS: ทุกคำ
+      ATLEAST: อย่างน้อยมีคำว่า
+      EXACT: ตรงทุกคำ
+      GO: ค้นหา
+      LASTUPDATED: จัดลำดับโดย
+      PAGETITLE: หัวเรื่อง
+      PROVIDE_A_SEARCH_TERM: ใส่คำที่ต้องการค้นหา
+      RELEVANCE: ที่เกี่ยวข้อง
+      SEARCHBY: ค้นหาโดย
+      SORTBY: จัดลำดับโดย
+      WITHOUT: 'ไม่ต้องมีคำว่า'
+  AdvancedSearchPage: 
+      PLURALNAME: 'Advanced Search Pages (TH)'
+      SINGULARNAME: 'Advanced Search Page (TH)'
+      DESCRIPTION: 'Page shows an advanced search form and also results of that search (TH)'
+
+  SearchPage:
+      DESCRIPTION: 'Page shows a search form and also results of that search (TH)'
+      NEXT: ถัดไป
+      NEXT_PAGE: หน้าถัดไป
+      PLURALNAME: "Search Pages (TH)"
+      PREVIOUS: ก่อนหน้า
+      PREVIOUS_PAGE: หน้าก่อนหน้า
+      RESULTS_FOUND: ผลการค้นหา
+      SEARCH: ค้นหา
+      SEARCH_HINT: "Enter a term to search the site (TH)"
+      SINGULARNAME: "Search Page (TH)"
