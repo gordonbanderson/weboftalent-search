@@ -1,3 +1,5 @@
+<div class="row">
+<div class="columns large-12">
 $Content
 
 <% if Form %>
@@ -37,20 +39,10 @@ Page $Results.CurrentPage of $Results.TotalPages &nbsp;($Results.Count <% _t('Se
 <% end_with %>
 </div>
 Sorry, your search query did not return any results. 
-
- 
 <% end_if %>
   <% end_if %>
 </div>
-
-
-
-
 <% include SearchPagination %>
-
 </div>
-
-
-
-
-$PageComments
+</div>
+</div>
