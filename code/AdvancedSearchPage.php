@@ -15,6 +15,8 @@ class AdvancedSearchPage extends SearchPage {
 
 class AdvancedSearchPage_Controller extends SearchPage_Controller {
 
+  private static $allowed_actions = array('AdvancedSearchForm');
+
   public function init() {
     parent::init();
     Requirements::css("weboftalent-search/css/search.css");
@@ -30,7 +32,9 @@ class AdvancedSearchPage_Controller extends SearchPage_Controller {
   function AdvancedSearchForm() {
     error_log("Show advanced search form");
     $searchText = isset($this->Query) ? $this->Query : 'Search';
-    return new SearchAdvancedForm($this, "AdvancedSearchForm");//, null, $actions); //, $fields, $actions);
+    $form = new SearchAdvancedForm($this, "AdvancedSearchForm");//, null, $actions); //, $fields, $actions);
+    $form->addExtraClass('inline');
+    return $form;
   }
 
 }
