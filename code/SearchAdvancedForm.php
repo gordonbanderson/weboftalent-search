@@ -4,10 +4,10 @@
  * @package sapphire
  * @subpackage search
  */
-class SearchAdvancedForm extends SearchForm {
+class SearchAdvancedForm extends FoundationSearchForm {
 
-	public static $fieldCssClasses = 'span11';
-	public static $buttonCssClasses = 'btn btn-primary';
+	public static $fieldCssClasses = 'small-12 columns';
+	public static $buttonCssClasses = 'button tiny small-3 medium-2 large-1 columns right';
 
 
 	protected $classesToSearch = array(
@@ -26,7 +26,7 @@ class SearchAdvancedForm extends SearchForm {
 	
 	
 	/**
-	 * the constructor of a Simple/basic SearchForm
+	 * the constructor of a advancedSearchForm
 	 */
 	function __construct($controller, $name, $fields = null, $actions = null) {
 		error_log("Advanced search form - GBA");
@@ -148,7 +148,7 @@ class SearchAdvancedForm extends SearchForm {
 		
 		if(!$actions) {
 			$actions = new FieldList(
-				$fa = new FormAction("results", _t('AdvancedSearchForm.Search', 'Search'))
+				$fa = new FormAction("results", _t('SearchPage.SEARCH', 'Search'))
 			);
 		}
 
