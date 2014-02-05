@@ -23,6 +23,7 @@ th:
       PLURALNAME: "Search Pages (TH)"
       PREVIOUS: ก่อนหน้า
       PREVIOUS_PAGE: หน้าก่อนหน้า
+      NO_RESULTS_FOUND: 'No results found (TH)'
       RESULTS_FOUND: ผลการค้นหา
       SEARCH: ค้นหา
       SEARCH_HINT: "Enter a term to search the site (TH)"
