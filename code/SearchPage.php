@@ -78,8 +78,6 @@ class SearchPage_Controller extends Page_Controller {
       $elapsed = round(100*($endTime-$startTime))/100;
       $data['ElapsedTime'] = $elapsed;
 
-      error_log("about to render");
-
 
       return $this->customise($data)->renderWith(array($formResultsTemplate, 'Page'));
   }
@@ -90,7 +88,6 @@ class SearchPage_Controller extends Page_Controller {
   Search form components
   */
   function SearchForm() {
-    error_log("Show search form");
 
     // show search term or empty text
     $searchText = isset($this->Query) ? $this->Query : '';
@@ -98,15 +95,13 @@ class SearchPage_Controller extends Page_Controller {
     $tf = new TextField("Search", "", $searchText);
     $tf->addExtraClass('small-9 medium-10 large-11 columns');
 
-
-    
     $fields = new FieldList(
       $tf
     );
 
     $fa = new FormAction('results', _t('SearchPage.SEARCH', 'Search'));
 
-    // for bootstrap
+    // for zurb
     $fa->useButtonTag = true;
     $fa->addExtraClass('button tiny small-3 medium-2 large-1 columns');
    // $fa->addExtraClass('btn-primary');
@@ -124,8 +119,6 @@ class SearchPage_Controller extends Page_Controller {
    // $form->setTemplate('HorizontalForm');
 
     $form->addExtraClass('inline');
-
-    $form->Horizontal = true;
 
     return $form;
   }
