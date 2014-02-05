@@ -1,0 +1,21 @@
+{
+	"name": "weboftalent/indexlastedited",
+	"description": "SImple and advanced search with pages results",
+	"type": "silverstripe-module",
+	"keywords": ["silverstripe", "search","advanced search","weboftalent"],
+	"authors": [
+		{
+			"name": "Gordon Anderson",
+			"email": "gordon.b.anderson@gmail.com",
+			"homepage": "https://github.com/gordonbanderson/weboftalent-search",
+			"role": "Developer"
+		}
+	],
+    "support": {
+        "issues": "https://github.com/gordonbanderson/weboftalent-search/issues"
+    },
+	"require":
+	{
+		"silverstripe/framework": "~3.1"
+	}
+}
