@@ -18,7 +18,7 @@ class FoundationSearchForm extends FoundationForm {
 	 * @var int $pageLength How many results are shown per page.
 	 * Relies on pagination being implemented in the search results template.
 	 */
-	protected $pageLength = 2;
+	protected $pageLength = 10;
 	
 	/**
 	 * Classes to search
