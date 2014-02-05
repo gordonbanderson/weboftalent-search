@@ -5,9 +5,9 @@ class SearchPageExtension extends Extension {
 
  function getSearchPageURI() {
       $result = '';
-      // we need to check the classname otherwise a child class such as AdvancedSearchPage can be returned
-      $searchPage = DataObject::get_one("SearchPage","ClassName = 'SearchPage'");
-      error_log("SEARCH PAGE:".$searchPage);
+
+      $searchPage = $this->getSearchPage();
+
       if ($searchPage) {
         $result = $searchPage->AbsoluteLink();
       }
@@ -17,13 +17,34 @@ class SearchPageExtension extends Extension {
 
 
   function getSearchPage() {
-    // we need to check the classname otherwise a child class such as AdvancedSearchPage can be returned
-    return DataObject::get_one("SearchPage","ClassName = 'SearchPage'");
+    $ck = $this->owner->CacheKey('searchpage', 'SearchPage');
+    $ck = str_replace(' ', '_', $ck);
+    $ck = str_replace(':', '_', $ck);
+    $ck = str_replace('-', '_', $ck);
+
+    $cache = SS_Cache::factory('searchpagecache');
+    $searchPage = null;
+    $cachekeyname = 'searchpageuri'.$this->owner->Locale.$ck;
+    if(!($searchPage = unserialize($cache->load($cachekeyname)))) {
+      $searchPage = DataObject::get_one("SearchPage","ClassName = 'SearchPage'");
+      $cache->save(serialize($searchPage), $cachekeyname);
+    }
+    return $searchPage;
   }
 
   function getAdvancedSearchPage() {
-  	return DataObject::get_one("AdvancedSearchPage");
+  	$ck = $this->owner->CacheKey('advancedsearchpage', 'AdvancedSearchPage');
+    $ck = str_replace(' ', '_', $ck);
+    $ck = str_replace(':', '_', $ck);
+    $ck = str_replace('-', '_', $ck);
+    $cache = SS_Cache::factory('searchpagecache');
+    $searchPage = null;
+    $cachekeyname = 'searchpageuri'.$this->owner->Locale.$ck;
+    if(!($searchPage = unserialize($cache->load($cachekeyname)))) {
+      $searchPage = DataObject::get_one("AdvancedSearchPage","ClassName = 'SearchPage'");
+      $cache->save(serialize($searchPage), $cachekeyname);
+    }
+    return $searchPage;
   }
 
 }
-?>
