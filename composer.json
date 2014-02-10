@@ -1,5 +1,5 @@
 {
-	"name": "weboftalent/indexlastedited",
+	"name": "weboftalent/search",
 	"description": "SImple and advanced search with pages results",
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "search","advanced search","weboftalent"],
