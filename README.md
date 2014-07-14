@@ -1,7 +1,7 @@
 # **** Work in Progress ****
 
 This is not yet complete, the TotalItems is not being returned currently
-
+FIX: Use getTotalItems, see https://github.com/silverstripe/silverstripe-framework/issues/2259
 
 ##Functionality
 * Addition of a Search Page with paginated results
