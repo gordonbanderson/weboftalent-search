@@ -1,0 +1,6 @@
+---
+name: weboftalent-search
+---
+Page_Controller:
+  extensions:
+    ['SearchPageExtension']
