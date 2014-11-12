@@ -17,7 +17,7 @@ class SearchPageExtension extends Extension {
 
 
   function getSearchPage() {
-    $ck = $this->owner->CacheKey('searchpage', 'SearchPage');
+    $ck = $this->owner->CacheKey('searchpage2', 'SearchPage');
     $ck = str_replace(' ', '_', $ck);
     $ck = str_replace(':', '_', $ck);
     $ck = str_replace('-', '_', $ck);
@@ -26,14 +26,14 @@ class SearchPageExtension extends Extension {
     $searchPage = null;
     $cachekeyname = 'searchpageuri'.$this->owner->Locale.$ck;
     if(!($searchPage = unserialize($cache->load($cachekeyname)))) {
-      $searchPage = DataObject::get_one("SearchPage","ClassName = 'SearchPage'");
+      $searchPage = SearchPage::get()->filter('ClassName','SearchPage')->first();
       $cache->save(serialize($searchPage), $cachekeyname);
     }
     return $searchPage;
   }
 
   function getAdvancedSearchPage() {
-  	$ck = $this->owner->CacheKey('advancedsearchpage', 'AdvancedSearchPage');
+  	$ck = $this->owner->CacheKey('advancedsearchpage2', 'AdvancedSearchPage');
     $ck = str_replace(' ', '_', $ck);
     $ck = str_replace(':', '_', $ck);
     $ck = str_replace('-', '_', $ck);
@@ -41,7 +41,7 @@ class SearchPageExtension extends Extension {
     $searchPage = null;
     $cachekeyname = 'searchpageuri'.$this->owner->Locale.$ck;
     if(!($searchPage = unserialize($cache->load($cachekeyname)))) {
-      $searchPage = DataObject::get_one("AdvancedSearchPage","ClassName = 'SearchPage'");
+      $searchPage = AdvancedSearchPage::get()->first();
       $cache->save(serialize($searchPage), $cachekeyname);
     }
     return $searchPage;
